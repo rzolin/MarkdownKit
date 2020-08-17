@@ -9,7 +9,7 @@ import Foundation
 
 open class MarkdownHeader: MarkdownLevelElement {
 
-  fileprivate static let regex = "^(#{1,%@})\\s*(.+)$"
+  fileprivate static let regex = "^(# {1,%@})\\s*(.+)$"
 
   open var maxLevel: Int
   open var font: MarkdownFont?
@@ -37,7 +37,7 @@ open class MarkdownHeader: MarkdownLevelElement {
     var attributes = self.attributes
     if let font = font {
         let headerFontSize: CGFloat = font.pointSize + 4 + (-1 * CGFloat(level) * CGFloat(fontIncrease))
-      
+
       attributes[NSAttributedString.Key.font] = font.withSize(headerFontSize).bold()
     }
     return attributes
